@@ -5,7 +5,6 @@ import { useAuth0 } from "@auth0/auth0-react"
 
 const Success = ({loan}) => {
 
-    console.log(loan)
     const { loginWithRedirect, logout, user } = useAuth0()
 
   return (
@@ -17,8 +16,6 @@ const Success = ({loan}) => {
               <h2 className='text-4xl font-extrabold'>Congratulations!</h2>
               <h3 className='text-2xl font-bold'>Your history is confirmed and you are qualified for the credit and loan.</h3>
               <p className='mt-4 mb-10'>Below are the details of your Financial History.</p>
-
-            {/* <Link to="/calculate" className='ml-12 font-extrabold'>Go back to the Borrower's look up page.</Link> */}
               <div id='grid-container' class='grid gap-16 grid-cols-3 grid-rows-3'>
               <div class='font-extrabold w-[200px]'>
                 Full Name
