@@ -95,7 +95,7 @@ function CalculateScore() {
               replace: false})
       }
   }, [loan])
-
+  
   return <div class="relative">
     
     <div class="flex justify-end">
