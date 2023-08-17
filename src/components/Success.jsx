@@ -14,7 +14,7 @@ const Success = ({loan}) => {
             <button class='absolute top-0 right-0 mr-8 mt-4 rounded-lg bg-custom_orange w-32 h-10 text-white' onClick={() => logout({ logoutParams: { returnTo: "https://credit-rabbit.vercel.app" } })}>Log Out</button>
             <div className='mt-8 ml-12 w-[525px]'> 
               <h2 className='text-4xl font-extrabold'>Congratulations!</h2>
-              <h3 className='text-2xl font-bold'>Your history is confirmed and you are qualified for the credit and loan.</h3>
+              <h3 className='text-2xl font-bold'>Based on the information you have provided, you are qualified for the credit and loan.</h3>
               <p className='mt-4 mb-10'>Below are the details of your Financial History.</p>
               <div id='grid-container' class='grid gap-16 grid-cols-3 grid-rows-3'>
               <div class='font-extrabold w-[200px]'>
