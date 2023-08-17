@@ -1,6 +1,5 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
-// import UserLoan from '../../models/user_loan'
 import { useAuth0 } from "@auth0/auth0-react"
 import {useNavigate} from 'react-router-dom'
 
@@ -10,7 +9,6 @@ function CalculateScore() {
   const navigate=useNavigate()
   const [formData, setFormData]=useState({})
   const [loan, setLoan]=useState({})
-  // add state for loan status to conditionally render results page
   const [error, setError]=useState('')
   const [calculated, setCalculated]=useState(false)
   
@@ -35,14 +33,6 @@ function CalculateScore() {
       person_emp_length=parseInt(formData.person_emp_length)
       other_payments=parseInt(formData.other_payments)
       cb_person_cred_hist_length=parseInt(formData.cb_person_cred_hist_length)
-      // setting it to the form data
-      
-      // formData.person_income = person_income
-      // formData.person_age = person_age
-      // formData.loan_amnt = loan_amnt
-      // formData.person_emp_length = person_emp_length
-      // formData.other_payments = other_payments
-      // formData.cb_person_cred_hist_length = cb_person_cred_hist_length
     }
     catch(err){
       console.log(err)
@@ -51,37 +41,21 @@ function CalculateScore() {
     }
     let percentage=loan_amnt/(person_income-other_payments)
     setFormData({...formData, percent_of_income: percentage})
-    // formData.percent_of_income = percentage
-    console.log(percentage)
-    // percentage is referenced as percent_of_income in the notes
-    console.log(percentage<=.2)
     if (percentage<=.20 && percentage>0){
-      console.log('here')
       loan_status=true
-      // formData.loan_status = true
-      // return
     }
     else if ((percentage<=0.5 && percentage>0.2) && cb_person_cred_hist_length>=2 && person_emp_length>=3 && person_age>=25){
       loan_status=true
-      // formData.loan_status = true
-      // return
     }
     else if ((percentage<=0.7 && percentage>0.5) && cb_person_cred_hist_length>=5 && person_emp_length>=5 && person_age>=28 && formData.defaultStatus==='no'){
       loan_status=true
-      // formData.loan_status = true
-      // return
     }
     else if ((percentage<1 && percentage>.7) && cb_person_cred_hist_length>=10 && person_emp_length>=10 && person_age>=30 && formData.defaultStatus==='no'){
       loan_status=true
-      // formData.loan_status = true
-      // return
     }
     else{
       loan_status=false
-      // formData.loan_status = false
-      // return
     }
-    console.log(loan_status)
     if (formData.defaultStatus == 'True') {
       cb_person_default_on_file = true
     } else {
@@ -111,8 +85,6 @@ function CalculateScore() {
   const handleSubmit=(e)=>{
     e.preventDefault()
     calculate(formData)
-    console.log(formData)
-    // saveFormData(formData)
   }
   useEffect(()=>{
     if (calculated){
@@ -124,9 +96,6 @@ function CalculateScore() {
       }
   }, [loan])
 
-  // const saveFormData(formData) {
-  // }
-  
   return <div class="relative">
     
     <div class="flex justify-end">
