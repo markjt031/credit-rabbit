@@ -30,10 +30,7 @@ Our financial scoring algorithmns are based on public records and models built b
 ```
     let percentage=loan_amnt/(person_income-other_payments)
     setFormData({...formData, percent_of_income: percentage})
-    console.log(percentage)
-    console.log(percentage<=.2)
     if (percentage<=.20 && percentage>0){
-      console.log('here')
       loan_status=true
     }
     else if ((percentage<=0.5 && percentage>0.2) && cb_person_cred_hist_length>=2 && person_emp_length>=3 && person_age>=25){
