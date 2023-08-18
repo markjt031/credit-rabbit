@@ -22,5 +22,4 @@ const Failure = () => {
     </div>
   )
 }
-
 export default Failure
